@@ -14,10 +14,12 @@
     <%= f.text_area :concept, class: :form__text, id:"prototype_concept" %>
   </div>
 
-   <%# <div class="field"> %>
-    <%# <%= f.label :hoge, "プロトタイプの画像" %><br />
-    <%# <%= f.file_field :image, id:"prototype_image" %>
-  <%# </div> %>
+   <div class="field">
+    <%= f.label :hoge, "プロトタイプの画像" %><br />
+    <%= f.file_field :image, id:"prototype_image" %>
+  </div>
+
+  <%= image_tag prototype.image, class: 'prototype-image' if prototype.image.attached? %>
 
   <div class="actions">
     <%= f.submit "保存する", class: :form__btn  %>

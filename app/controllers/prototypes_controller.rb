@@ -8,25 +8,18 @@ class PrototypesController < ApplicationController
   end
 
   def create
-    Prototype.create(prototype_params)
-    redirect_to root_path
-  end
-
-  def update
-    if current_user.update(user_params)
-      redirect_to root_path
+    @prototype = Prototype.new(prototype_params)
+    if @prototype.save
+      redirect_to root_path(@prototype)
     else
-      render :edit, status: :unprocessable_entity
+      render :index, status: unprocessable_entity
     end
   end
 
   private
 
   def prototype_params
-    params.require(:prototype).permit(:title, :catch_copy, :concept )
+    params.require(:prototype).permit(:title, :catch_copy, :concept, :image)
   end
 
-  def user_params
-    params.require(:user).permit(:name, :email)
-  end
-end
+ end
