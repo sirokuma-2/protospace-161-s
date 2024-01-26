@@ -1,6 +1,7 @@
 class PrototypesController < ApplicationController
   def index
     @prototype = Prototype.new
+    @prototypes = Prototype.includes(:user)
   end
 
   def new
@@ -12,6 +13,7 @@ class PrototypesController < ApplicationController
     if @prototype.save
       redirect_to root_path(@prototype)
     else
+      @prototypes = Prototype.includes(:user)
       render :index, status: unprocessable_entity
     end
   end
