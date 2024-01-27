@@ -15,11 +15,11 @@
   </div>
 
    <div class="field">
-    <%= f.label :hoge, "プロトタイプの画像" %><br />
+    <%= f.label :image, "プロトタイプの画像" %><br />
     <%= f.file_field :image, id:"prototype_image" %>
   </div>
 
-  <%= image_tag prototype.image, class: 'prototype-image' if prototype.image.attached? %>
+  <%# <%= image_tag prototype.image, class: 'prototype-image' if prototype.image.attached? %>
 
   <div class="actions">
     <%= f.submit "保存する", class: :form__btn  %>
