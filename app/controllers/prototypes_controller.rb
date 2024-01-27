@@ -1,4 +1,7 @@
 class PrototypesController < ApplicationController
+
+  before_action :set_prototype, only: [:show]
+
   def index
     # @prototype = Prototype.new
     # @prototypes = Prototype.includes(:user)
@@ -22,6 +25,10 @@ class PrototypesController < ApplicationController
 
   def prototype_params
     params.require(:prototype).permit(:title, :catch_copy, :concept, :image)
+  end
+
+  def set_prototype
+    @prototype = Prototype.find(params[:id])
   end
 
  end
