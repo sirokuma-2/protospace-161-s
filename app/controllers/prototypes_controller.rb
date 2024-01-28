@@ -2,7 +2,7 @@ class PrototypesController < ApplicationController
   before_action :set_prototype, only: [:show]
 
   def index
-    # @prototype = Prototype.new
+    @prototypes = Prototype.all
     # @prototypes = Prototype.includes(:user)
   end
 
