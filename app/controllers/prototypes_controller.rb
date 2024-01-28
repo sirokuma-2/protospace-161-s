@@ -1,5 +1,4 @@
 class PrototypesController < ApplicationController
-
   before_action :set_prototype, only: [:show]
 
   def index
@@ -19,6 +18,9 @@ class PrototypesController < ApplicationController
       @prototypes = Prototype.includes(:user)
       render :new
     end
+  end
+
+  def show
   end
 
   private
